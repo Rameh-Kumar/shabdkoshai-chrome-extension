@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "ShabdkoshAI – Context-aware AI Dictionary",
+  "version": "1.0.1",
+  "description": "AI-powered dictionary. Double-click or Alt+select words for instant, context-aware definitions.",
+  "author": "Ramesh Kumar",
+  "minimum_chrome_version": "88",
+  "offline_enabled": false,
+  "permissions": [
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/contentScript.js"],
+      "css": ["src/styles.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
